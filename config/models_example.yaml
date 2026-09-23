@@ -1,0 +1,52 @@
+# config/models.yaml
+# 各节点 LLM 模型配置
+#
+# provider:        deepseek | moonshot | llama_cpp
+# thinking:        enabled | disabled       是否启用思考模式
+# reasoning_effort: none | low | medium | high | max   思考程度
+#                  （thinking: disabled 时忽略，等同不思考）
+#
+# 每个节点可覆盖 defaults 中的任意字段。
+
+defaults:
+  provider: deepseek
+  thinking: enabled
+  reasoning_effort: max
+
+nodes:
+  # 主回复节点（事实提取、感知判断、自主记忆检索与生成）
+  main:
+    model: deepseek-v4-pro
+
+  # 独立检查节点（格式、空回复；拒答由本地规则识别）
+  check:
+    model: deepseek-v4-pro
+    thinking: disabled
+    reasoning_effort: none
+
+  # 角色与用户状态联合更新（用户输入后、正式回复后共用）
+  participant_state:
+    model: deepseek-v4-pro
+
+
+  # 事件判断节点
+  event_judge:
+    model: deepseek-v4-pro
+
+  # 记忆检索语句生成
+  memory_query:
+    model: deepseek-v4-pro
+
+  # 记忆总结/更新
+  memory_summary:
+    model: deepseek-v4-pro
+
+  # 记忆语义切块
+  chunking:
+    model: deepseek-v4-pro
+    thinking: disabled
+    reasoning_effort: none
+
+  # TTS 语气指令生成
+  tts:
+    model: deepseek-v4-pro

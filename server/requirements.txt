@@ -1,0 +1,9 @@
+# API runtime reuses the existing Agent, memory and optional TTS implementations.
+-c constraints.txt
+-r ../requirements.txt
+fastapi
+uvicorn
+psycopg[binary,pool]
+pydantic
+python-dotenv
+pyyaml

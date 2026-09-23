@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "mybot",
+  "version": "0.1.0",
+  "identifier": "local.mybot.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:5173",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [{ "label": "main", "title": "mybot", "width": 1280, "height": 820, "minWidth": 360, "minHeight": 480, "transparent": true, "resizable": true, "center": true }],
+    "security": {
+      "csp": "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: http://asset.localhost http://127.0.0.1:* data:; media-src 'self' http://127.0.0.1:*; connect-src ipc: http://ipc.localhost 'self' http://127.0.0.1:*"
+    }
+  },
+  "bundle": { "active": true, "useLocalToolsDir": true, "targets": ["nsis"], "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.ico"] }
+}

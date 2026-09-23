@@ -1,0 +1,10 @@
+node_modules/
+dist/
+public/local-characters/
+*.tsbuildinfo
+test-results/
+playwright-report/
+src-tauri/target/
+src-tauri/gen/
+.env.local
+.env.*.local

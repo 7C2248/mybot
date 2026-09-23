@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+config/.env
+config/models.yaml
+config/*.pem
+
+.vscode/
+tests/*
+
+/Character/
+data/*
+
+temp_llm.py
+temp.txt

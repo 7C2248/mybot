@@ -1,0 +1,42 @@
+{
+  "name": "mybot-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "assets": "node scripts/prepare-characters.mjs",
+    "predev": "npm run assets",
+    "dev": "vite --host 127.0.0.1",
+    "prebuild": "npm run assets",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "pretest:e2e": "npm run assets",
+    "test:e2e": "playwright test",
+    "tauri": "tauri",
+    "desktop:dev": "node scripts/desktop.mjs dev",
+    "desktop:build": "node scripts/desktop.mjs build",
+    "test:desktop": "node scripts/verify-desktop.mjs",
+    "test:service": "node scripts/verify-service.mjs",
+    "test:service-ui": "node scripts/test-service-ui.mjs"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.11.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@tauri-apps/cli": "^2.11.0",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.0",
+    "vitest": "4.1.11"
+  }
+}
